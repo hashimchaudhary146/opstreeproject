@@ -25,8 +25,7 @@ RUN set -x \
     test -z "$found" && echo >&2 "error: failed to fetch GPG key $NGINX_GPGKEY" && exit 1; \
     apt-get remove --purge --auto-remove -y gnupg1 && rm -rf /var/lib/apt/lists/* \
     && dpkgArch="$(dpkg --print-architecture)" \
-    && nginxPackages="%%PACKAGES%%
-    " \
+    && nginxPackages="%%PACKAGES%%" \
     && case "$dpkgArch" in \
         amd64|i386|arm64) \
 # arches officialy built by upstream
@@ -101,7 +100,4 @@ EXPOSE 8080 8080
 STOPSIGNAL SIGQUIT
 
 CMD ["nginx", "-g", "daemon off;"]
-
-
-
 
