@@ -3,8 +3,8 @@ MAINTAINER hashimchaudhary146@gmail.com
 RUN yum install nginx -y \
 zip \
 unzip 
+RUN mkdir -p /var/www/html
 ADD  https://www.free-css.com/assets/files/free-css-templates/download/page262/besloor.zip /var/www/html
-RUN mkdir -p /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip besloor.zip
 RUN cp -rvf besloor/* .
